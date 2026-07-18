@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>オハナ動物病院｜動物病院</title>
+<meta name="description" content="杉並区のオハナ動物病院。家族の一員であるペットの健康を生涯サポートします。安心の獣医療と温かいケアで、大切な命を守ります。">
+<link rel="canonical" href="https://mochigoma09.github.io/demo-9afbe8/">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="オハナ動物病院">
+<meta property="og:title" content="オハナ動物病院｜動物病院">
+<meta property="og:description" content="杉並区のオハナ動物病院。家族の一員であるペットの健康を生涯サポートします。安心の獣医療と温かいケアで、大切な命を守ります。">
+<meta property="og:url" content="https://mochigoma09.github.io/demo-9afbe8/">
+<meta property="og:image" content="">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="オハナ動物病院｜動物病院">
+<meta name="twitter:description" content="杉並区のオハナ動物病院。家族の一員であるペットの健康を生涯サポートします。安心の獣医療と温かいケアで、大切な命を守ります。">
+<meta name="twitter:image" content="">
+
+<!-- 構造化データ（VeterinaryCare は preset の schema.orgサブタイプ。住所/電話は実値へ） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://mochigoma09.github.io/demo-9afbe8/#org", "name": "オハナ動物病院", "url": "https://mochigoma09.github.io/demo-9afbe8/" },
+    { "@type": "WebSite", "@id": "https://mochigoma09.github.io/demo-9afbe8/#site", "url": "https://mochigoma09.github.io/demo-9afbe8/", "name": "オハナ動物病院", "publisher": { "@id": "https://mochigoma09.github.io/demo-9afbe8/#org" } },
+    { "@type": "VeterinaryCare", "@id": "https://mochigoma09.github.io/demo-9afbe8/#biz", "name": "オハナ動物病院", "url": "https://mochigoma09.github.io/demo-9afbe8/", "telephone": "03-5364-0203", "address": { "@type": "PostalAddress", "addressCountry": "JP", "addressRegion": "東京都", "addressLocality": "杉並区", "streetAddress": "高円寺北３丁目２３−６" } }
+  ]
+}
+</script>
+
+<!-- フォント（コンセプトで差し替え） / 土台CSS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base/base.css">
+
+<style>
+/* ============================================================
+   base.css — 全デモ共通の「不変の土台」（品質の担保。見た目の個性はここに持たせない）
+   各デモHTMLは必ずこれを読み込み、レイアウト/世界観は自由に作る。
+   固定するのは：リセット / トークンの“契約”（変数名）/ a11y / 再利用部品 のみ。
+   ============================================================ */
+
+/* --- デザイントークンの契約（値は案件コンセプトで :root を上書きする） --- */
+:root {
+  --color-primary: #1f3a5f;
+  --color-accent:  #b89150;
+  --color-text:    #2a2e35;
+  --color-bg:      #ffffff;
+  --color-surface: #f5f7fa;
+  --color-line:    rgba(0, 0, 0, 0.12);
+  --font-heading:  "Noto Serif JP", serif;
+  --font-body:     system-ui, -apple-system, "Noto Sans JP", sans-serif;
+  --radius:        14px;
+  --container:     1120px;
+}
+
+/* --- reset（wp-theme-starter から移植） --- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { min-height: 100vh; font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+img, svg, video, picture { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; background: none; border: 0; cursor: pointer; }
+h1, h2, h3, h4 { font-family: var(--font-heading); line-height: 1.4; }
+ul, ol { list-style: none; padding: 0; }
+
+/* --- a11y（不変） --- */
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; } }
+
+/* --- 再利用部品（配色/形はトークン依存＝案件で変わる。構造だけ共通） --- */
+.l-wrapper { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: 20px; }
+
+.c-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 14px 32px; font-weight: 700; border-radius: 999px; color: #fff; background: var(--color-primary); transition: transform .25s, box-shadow .25s; }
+.c-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.15); }
+
+/* 全画面ハンバーガー（1024px以下） */
+.c-hamburger { width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; position: relative; z-index: 1001; }
+.c-hamburger__bars, .c-hamburger__bars::before, .c-hamburger__bars::after { content: ""; display: block; width: 24px; height: 2px; background: var(--color-text); transition: transform .3s, opacity .3s; }
+.c-hamburger__bars { position: relative; }
+.c-hamburger__bars::before { position: absolute; top: -7px; left: 0; }
+.c-hamburger__bars::after  { position: absolute; top: 7px;  left: 0; }
+.c-hamburger[aria-expanded="true"] .c-hamburger__bars { background: transparent; }
+.c-hamburger[aria-expanded="true"] .c-hamburger__bars::before { transform: translateY(7px) rotate(45deg); }
+.c-hamburger[aria-expanded="true"] .c-hamburger__bars::after  { transform: translateY(-7px) rotate(-45deg); }
+.c-nav { position: fixed; inset: 0; z-index: 1000; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; background: color-mix(in srgb, var(--color-bg) 92%, transparent); backdrop-filter: blur(12px); opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; font-family: var(--font-heading); font-size: 1.2rem; }
+.c-nav.is-open { opacity: 1; visibility: visible; }
+@media (min-width: 1025px) {
+  .c-hamburger { display: none; }
+  .c-nav { position: static; flex-direction: row; gap: 32px; background: none; backdrop-filter: none; opacity: 1; visibility: visible; font-size: 1rem; }
+}
+
+/* スクロールリビール（nav.jsがJSで付与する。JS無効環境では何も付かず常に表示） */
+.js-reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.js-reveal.is-inview { opacity: 1; transform: none; }
+
+/* 追従フローティングCTA（1024px以下） */
+.c-floating-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 800; display: flex; justify-content: center; padding: 0 16px 14px; pointer-events: none; }
+.c-floating-cta .c-btn { pointer-events: auto; width: 100%; max-width: 520px; box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+body { padding-bottom: 84px; } /* CTA分の余白 */
+@media (min-width: 1025px) { .c-floating-cta { display: none; } body { padding-bottom: 0; } }
+
+</style>
+<style>
+:root {
+  --color-primary: #4A7C72;
+  --color-accent: #E09F7F;
+  --color-surface: #FDFBF8;
+  --color-text: #333333;
+  --font-heading: 'Zen Maru Gothic', sans-serif;
+  --font-body: 'Noto Sans JP', sans-serif;
+  --radius: 8px;
+  --c-white: #ffffff;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* Header */
+.p-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 24px 0;
+}
+.p-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.p-header__logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.p-header__logo svg {
+  width: 32px;
+  height: 32px;
+  fill: currentColor;
+}
+
+/* Typography & Layout */
+.u-text-en { font-family: var(--font-heading); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.875rem; color: var(--color-accent); font-weight: 700; display: block; margin-bottom: 1rem; }
+.u-heading-display { font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; }
+.u-heading-section { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.2; margin-bottom: 2rem; }
+
+/* Motif: Curve */
+.m-curve-bg {
+  position: relative;
+  overflow: hidden;
+}
+.m-curve-bg::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 60%;
+  height: 120%;
+  background: color-mix(in srgb, var(--color-primary) 5%, transparent);
+  border-radius: 45% 55% 70% 30% / 30% 40% 60% 70%;
+  z-index: -1;
+  transform: rotate(-10deg);
+}
+
+/* Hero */
+.p-hero {
+  padding-top: 160px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.p-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+@media (min-width: 1025px) {
+  .p-hero__grid { grid-template-columns: 1.2fr 0.8fr; gap: 80px; }
+}
+.p-hero__content { position: relative; z-index: 2; }
+.p-hero__image-wrap {
+  position: relative;
+  border-radius: 120px 8px 120px 8px;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+}
+.p-hero__image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Problem */
+.p-problem {
+  padding: 120px 0;
+  background: var(--color-primary);
+  color: var(--c-white);
+}
+.p-problem__inner {
+  max-width: 800px;
+  margin-left: 0;
+}
+.p-problem__list {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.p-problem__item {
+  font-size: clamp(1.125rem, 3vw, 1.5rem);
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.p-problem__item span { color: var(--color-accent); font-weight: 700; }
+
+/* Menu */
+.p-menu { padding: 120px 0; }
+.p-menu__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2px;
+  background: var(--color-line);
+  border: 1px solid var(--color-line);
+}
+.p-menu__card {
+  background: var(--c-white);
+  padding: 48px;
+  transition: background 0.4s;
+}
+.p-menu__card:hover { background: var(--color-surface); }
+.p-menu__card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-primary); }
+.p-menu__price { font-weight: 700; font-size: 0.875rem; color: #888; margin-bottom: 1.5rem; display: block; }
+
+/* Reasons */
+.p-reasons { padding: 120px 0; background: #f0f4f3; }
+.p-reasons__item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-bottom: 100px;
+  align-items: center;
+}
+@media (min-width: 1025px) {
+  .p-reasons__item { grid-template-columns: 1fr 1fr; }
+  .p-reasons__item:nth-child(even) .p-reasons__image { order: 2; }
+  .p-reasons__item:nth-child(even) .p-reasons__text { order: 1; }
+}
+.p-reasons__image {
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 16/10;
+}
+.p-reasons__image img { width: 100%; height: 100%; object-fit: cover; }
+.p-reasons__number { font-size: 4rem; font-family: var(--font-heading); color: var(--color-accent); opacity: 0.3; line-height: 1; }
+
+/* Doctor */
+.p-doctor { padding: 120px 0; }
+.p-doctor__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  align-items: center;
+}
+@media (min-width: 1025px) {
+  .p-doctor__grid { grid-template-columns: 0.8fr 1.2fr; }
+}
+.p-doctor__image {
+  border-radius: 50% 50% 0 0;
+  overflow: hidden;
+  background: var(--color-accent);
+  aspect-ratio: 1;
+}
+.p-doctor__image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); }
+.p-doctor__profile h3 { font-size: 2rem; margin-bottom: 0.5rem; }
+.p-doctor__profile p { margin-bottom: 1.5rem; }
+
+/* Voice */
+.p-voice { padding: 120px 0; background: var(--color-surface); }
+.p-voice__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+.p-voice__card {
+  background: var(--c-white);
+  padding: 32px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+.p-voice__card p { font-size: 0.95rem; line-height: 1.6; }
+.p-voice__meta { margin-top: 20px; font-size: 0.85rem; color: #777; border-top: 1px solid #eee; pt: 16px; display: block; padding-top: 16px;}
+
+/* Access */
+.p-access { padding: 120px 0; }
+.p-access__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+@media (min-width: 1025px) {
+  .p-access__grid { grid-template-columns: 1fr 1.5fr; }
+}
+.p-access__info { display: flex; flex-direction: column; gap: 24px; }
+.p-access__map {
+  background: #eee;
+  border-radius: var(--radius);
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+.p-access__map iframe { width: 100%; height: 100%; border: 0; filter: grayscale(1); }
+
+/* CTA */
+.p-cta {
+  padding: 120px 0;
+  background: var(--color-primary);
+  color: var(--c-white);
+  text-align: center;
+}
+.p-cta__inner { max-width: 700px; margin: 0 auto; }
+.p-cta .c-btn {
+  background: var(--color-accent);
+  margin-top: 40px;
+  min-width: 280px;
+}
+
+/* Footer */
+.p-footer { padding: 60px 0; background: #222; color: rgba(255,255,255,0.6); font-size: 0.875rem; }
+.p-footer__bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 40px; text-align: center; }
+
+/* Utilities */
+.c-badge { display: inline-block; padding: 4px 12px; background: var(--color-accent); color: white; border-radius: 4px; font-size: 0.75rem; font-weight: 700; margin-bottom: 12px; }
+</style>
+<style>:root{--color-primary:#4A7C72;--color-accent:#E09F7F;--color-surface:#FDFBF8;--color-text:#333333;--font-heading:'Zen Maru Gothic', sans-serif;--font-body:'Noto Sans JP', sans-serif;--radius:8px;}</style>
+</head>
+<body>
+
+<header class="p-header">
+  <div class="l-wrapper p-header__inner">
+    <a href="/" class="p-header__logo">
+      <svg viewBox="0 0 32 32"><path d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2zm0 26a12 12 0 1 1 12-12 12 12 0 0 1-12 12z"/><path d="M16 8a8 8 0 1 0 8 8 8 8 0 0 0-8-8zm0 14a6 6 0 1 1 6-6 6 6 0 0 1-6 6z"/></svg>
+      オハナ動物病院
+    </a>
+    <button class="c-hamburger js-nav-toggle" aria-controls="nav" aria-expanded="false" aria-label="メニューを開く">
+      <span class="c-hamburger__bars"></span>
+    </button>
+    <nav class="c-nav" id="nav">
+      <a href="#hero">Home</a>
+      <a href="#menu">Services</a>
+      <a href="#reasons">Philosophy</a>
+      <a href="#doctor">Doctor</a>
+      <a href="#access">Access</a>
+      <a href="#" class="c-btn">Web予約</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1 class="sr-only">杉並区のオハナ動物病院｜家族としてのペットを支える温かい医療</h1>
+
+  <section class="p-hero m-curve-bg" data-section="hero" id="hero">
+    <div class="l-wrapper">
+      <div class="p-hero__grid">
+        <div class="p-hero__content">
+          <span class="u-text-en">Welcome to Ohana</span>
+          <h2 class="u-heading-display">
+            「オハナ」は家族。<br>
+            絆を深める、<br>
+            第二の家。
+          </h2>
+          <p style="margin-top: 2rem; font-size: 1.125rem; max-width: 480px;">
+            杉並区の穏やかな街並みの中で、大切な家族であるペットと飼い主様が、心から安らげる場所。最新の医療と、温かい対話を大切にしています。
+          </p>
+          <div style="margin-top: 3rem;">
+            <a href="#" class="c-btn">診療予約はこちら</a>
+          </div>
+        </div>
+        <div class="p-hero__image-wrap">
+          <img src="https://images.unsplash.com/photo-1772103703388-69ae776c562f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="日差しの中でペットと触れ合う家族">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-problem" data-section="problem">
+    <div class="l-wrapper">
+      <div class="p-problem__inner">
+        <span class="u-text-en" style="color: rgba(255,255,255,0.7);">Counseling</span>
+        <h2 class="u-heading-section">こんな不安を、<br>抱えていませんか？</h2>
+        <div class="p-problem__list">
+          <div class="p-problem__item"><span>01</span> 言葉を話せないあの子の、本当の状態を知りたい</div>
+          <div class="p-problem__item"><span>02</span> 流れ作業ではなく、じっくり相談に乗ってほしい</div>
+          <div class="p-problem__item"><span>03</span> 病院に行くのを怖がるあの子を、優しく迎えてほしい</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-menu" data-section="menu" id="menu">
+    <div class="l-wrapper">
+      <div style="margin-bottom: 60px;">
+        <span class="u-text-en">Medical Services</span>
+        <h2 class="u-heading-section">診療のご案内</h2>
+      </div>
+      <div class="p-menu__grid">
+        <div class="p-menu__card">
+          <span class="c-badge">予防</span>
+          <h3>一般診療・予防接種</h3>
+          <span class="p-menu__price">初診料 1,500円〜</span>
+          <p>日常の体調不良から、混合ワクチン、狂犬病予防、フィラリア予防まで幅広く対応。丁寧な触診を基本としています。</p>
+        </div>
+        <div class="p-menu__card">
+          <span class="c-badge">健康</span>
+          <h3>オハナ・ドック（健診）</h3>
+          <span class="p-menu__price">基本コース 15,000円〜</span>
+          <p>血液検査、レントゲン、超音波検査などを組み合わせ、病気の早期発見を目指します。年齢や体質に合わせたプランをご提案。</p>
+        </div>
+        <div class="p-menu__card">
+          <span class="c-badge">専門</span>
+          <h3>歯科・口腔ケア</h3>
+          <span class="p-menu__price">処置内容により個別相談</span>
+          <p>健康寿命を左右する歯周病ケア。麻酔下でのスケーリングから、ご自宅でのブラッシング指導までサポートします。</p>
+        </div>
+        <div class="p-menu__card">
+          <span class="c-badge">高度</span>
+          <h3>外科手術・入院</h3>
+          <span class="p-menu__price">リスク・副作用の事前説明を徹底</span>
+          <p>去勢・避妊手術から軟部組織外科まで。痛みに配慮した疼痛管理と、清潔な入院環境を整えています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-reasons" data-section="reasons" id="reasons">
+    <div class="l-wrapper">
+      <div style="text-align: center; margin-bottom: 80px;">
+        <span class="u-text-en">Our Values</span>
+        <h2 class="u-heading-section">オハナ動物病院が<br>選ばれる理由</h2>
+      </div>
+      
+      <div class="p-reasons__item">
+        <div class="p-reasons__image">
+          <img src="https://images.unsplash.com/photo-1665231795856-769fb08a90bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="木の温もりがある院内">
+        </div>
+        <div class="p-reasons__text">
+          <div class="p-reasons__number">01</div>
+          <h3 style="font-size: 1.75rem; margin: 1rem 0;">「第二の家」のような安心感</h3>
+          <p>病院特有の緊張感を与えないよう、木の温もりを活かした内装と、アロマの香る待合室。ペットも飼い主様も、リラックスして過ごせる空間づくりを徹底しています。</p>
+        </div>
+      </div>
+
+      <div class="p-reasons__item">
+        <div class="p-reasons__image">
+          <img src="https://images.unsplash.com/photo-1725419876939-f8f9987cf0d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="優しく診察する様子">
+        </div>
+        <div class="p-reasons__text">
+          <div class="p-reasons__number">02</div>
+          <h3 style="font-size: 1.75rem; margin: 1rem 0;">インフォームド・コンセント</h3>
+          <p>治療の選択肢、メリット、リスク、費用。すべてを透明にし、飼い主様が納得できるまで丁寧にご説明します。「家族ならどうするか」を常に共に考えます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-doctor" data-section="doctor" id="doctor">
+    <div class="l-wrapper">
+      <div class="p-doctor__grid">
+        <div class="p-doctor__image">
+          <img src="https://images.unsplash.com/photo-1725419876939-f8f9987cf0d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="院長 近藤">
+        </div>
+        <div class="p-doctor__profile">
+          <span class="u-text-en">Director</span>
+          <h3>院長：近藤 健太</h3>
+          <p style="color: var(--color-accent); font-weight: 700;">獣医学博士 / 杉並区獣医師会所属</p>
+          <p>
+            幼い頃から動物たちに囲まれて育ち、彼らが与えてくれる無償の愛に救われてきました。私にとって「オハナ（家族）」という言葉は、単なるスローガンではなく、診療の原点です。<br><br>
+            最新の知見を取り入れつつも、一番大切にしているのは「目の前の命に誠実であること」。杉並区の皆様にとって、いつでも頼れるホームドクターでありたいと願っています。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-voice" data-section="voice">
+    <div class="l-wrapper">
+      <div style="margin-bottom: 60px;">
+        <span class="u-text-en">Voices</span>
+        <h2 class="u-heading-section">飼い主様からの声</h2>
+      </div>
+      <div class="p-voice__grid">
+        <div class="p-voice__card">
+          <p>「初めてのワンちゃんで不安ばかりでしたが、先生がとても優しく、些細な質問にも丁寧に答えてくださり安心しました。院内がとても綺麗で、愛犬も落ち着いて待てていました。」</p>
+          <span class="p-voice__meta">トイプードル 飼い主様</span>
+        </div>
+        <div class="p-voice__card">
+          <p>「猫専用の待合スペースがあるのが本当に助かります。怖がりなうちの子も、スタッフの皆さんが優しく声をかけてくださるので、以前よりリラックスしているように見えます。」</p>
+          <span class="p-voice__meta">ミックス猫 飼い主様</span>
+        </div>
+        <div class="p-voice__card">
+          <p>「仕事が忙しく予約が取りづらい時期もありましたが、Web予約システムが導入されてからとてもスムーズになりました。夜間の急な相談にも親身になっていただき感謝しています。」</p>
+          <span class="p-voice__meta">柴犬 飼い主様</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-access" data-section="access" id="access">
+    <div class="l-wrapper">
+      <div class="p-access__grid">
+        <div class="p-access__info">
+          <span class="u-text-en">Access</span>
+          <h2 class="u-heading-section">アクセス・診療時間</h2>
+          <div style="margin-bottom: 24px;">
+            <p><strong>住所：</strong><br>〒166-0002 東京都杉並区高円寺北３丁目２３−６</p>
+            <p><strong>電話：</strong><br>03-5364-0203</p>
+          </div>
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+            <thead>
+              <tr style="border-bottom: 1px solid var(--color-line);">
+                <th style="padding: 12px 4px; text-align: left;">診療時間</th>
+                <th style="padding: 12px 4px;">月</th><th style="padding: 12px 4px;">火</th><th style="padding: 12px 4px;">水</th><th style="padding: 12px 4px;">木</th><th style="padding: 12px 4px;">金</th><th style="padding: 12px 4px;">土</th><th style="padding: 12px 4px; color: var(--color-accent);">日</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--color-line);">
+                <td style="padding: 12px 4px;">09:00 - 12:00</td>
+                <td style="text-align: center;">○</td><td style="text-align: center;">○</td><td style="text-align: center;">休</td><td style="text-align: center;">○</td><td style="text-align: center;">○</td><td style="text-align: center;">○</td><td style="text-align: center;">△</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 4px;">16:00 - 19:00</td>
+                <td style="text-align: center;">○</td><td style="text-align: center;">○</td><td style="text-align: center;">休</td><td style="text-align: center;">○</td><td style="text-align: center;">○</td><td style="text-align: center;">○</td><td style="text-align: center;">休</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size: 0.8rem; margin-top: 8px;">※日曜は午前のみ予約診療。水曜・祝日は休診となります。</p>
+        </div>
+        <div class="p-access__map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.068678112523!2d139.6476503762541!3d35.70546592813137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f2858b29f95d%3A0x673998246797746d!2z6auY5YaG5a-66aeF!5e0!3m2!1sja!2sjp!4v1710000000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-cta" data-section="cta">
+    <div class="l-wrapper p-cta__inner">
+      <h2 class="u-heading-section">大切な家族のために、<br>今できることを。</h2>
+      <p>些細な変化や、気になること。どんなことでもお気軽にご相談ください。私たちは、あなたとペットの豊かな毎日を支えるパートナーです。</p>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+        <a href="#" class="c-btn">Web予約システム（24時間受付）</a>
+        <a href="tel:0353640203" style="font-size: 1.5rem; font-weight: 700; color: var(--c-white);">03-5364-0203</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="p-footer">
+  <div class="l-wrapper">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px;">
+      <div>
+        <p style="font-family: var(--font-heading); font-size: 1.25rem; color: #fff; margin-bottom: 1rem;">オハナ動物病院</p>
+        <p>東京都杉並区高円寺北３丁目２３−６</p>
+      </div>
+      <div>
+        <ul style="display: flex; flex-direction: column; gap: 8px;">
+          <li><a href="#hero">ホーム</a></li>
+          <li><a href="#menu">診療案内</a></li>
+          <li><a href="#reasons">当院の想い</a></li>
+          <li><a href="#access">アクセス</a></li>
+        </ul>
+      </div>
+      <div>
+        <p style="margin-bottom: 1rem;">お問い合わせ</p>
+        <a href="#" class="c-btn" style="min-height: 44px; padding: 10px 20px; font-size: 0.875rem;">Web予約</a>
+      </div>
+    </div>
+    <div class="p-footer__bottom">
+      <p>&copy; <span id="y"></span> Ohana Veterinary Clinic. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="c-floating-cta">
+  <a href="#" class="c-btn">Web予約</a>
+</div>
+
+<script>
+/* nav.js — 全画面ハンバーガーの開閉（背後スクロールロック）。全デモ共通の不変挙動。 */
+(function () {
+  var t = document.querySelector('.js-nav-toggle');
+  var n = document.getElementById('nav');
+  if (t && n) {
+    t.addEventListener('click', function () {
+      var open = t.getAttribute('aria-expanded') === 'true';
+      t.setAttribute('aria-expanded', String(!open));
+      n.classList.toggle('is-open', !open);
+      document.body.style.overflow = open ? '' : 'hidden';
+    });
+    n.addEventListener('click', function (e) {
+      if (e.target.closest('a')) { t.setAttribute('aria-expanded', 'false'); n.classList.remove('is-open'); document.body.style.overflow = ''; }
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { t.setAttribute('aria-expanded', 'false'); n.classList.remove('is-open'); document.body.style.overflow = ''; } });
+  }
+  var y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
+
+  /* スクロールリビール（抑制的モーション）：各 data-section の直下要素を
+     ふわっと表示。クラスはJSで付与するのでJS無効環境では常に見える。
+     prefers-reduced-motion は base.css 側の全体無効化が効く。 */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('is-inview'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+    document.querySelectorAll('[data-section]').forEach(function (sec) {
+      var kids = Array.prototype.slice.call(sec.children);
+      kids.forEach(function (el, i) {
+        el.classList.add('js-reveal');
+        el.style.transitionDelay = Math.min(i * 90, 360) + 'ms';
+        io.observe(el);
+      });
+    });
+  }
+})();
+
+</script>
+</body>
+</html>
