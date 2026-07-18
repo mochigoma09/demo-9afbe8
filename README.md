@@ -1,2 +1,3 @@
 # demo-9afbe8
-Auto generated demo site for オハナ動物病院
+
+AIによって自動生成された オハナ動物病院 様向けのデモサイトです。
